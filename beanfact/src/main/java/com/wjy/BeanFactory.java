@@ -34,7 +34,7 @@ public class BeanFactory {
         }
     }
 
-    public Object getBean(String name) {
+    public static Object getBean(String name) {
         String className = prop.getProperty(name);
         try {
             return Class.forName(className).newInstance();

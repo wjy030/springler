@@ -20,4 +20,5 @@ package com.wjy.service;
  */
 public interface CustomerService {
 
+    void save();
 }
