@@ -14,4 +14,4 @@
 >  request: web应用中每个request创建一个对象  
 >  session：web应用中每个会话创建一个对象  
 * init-method：初始化方法，对象初始化时调用
-* destroy-method: 销毁方法，对象销毁时调用。*只有作用域为singleton时有作用。*
+* destroy-method: 销毁方法，对象销毁时调用。*只有作用域为singleton时有作用。销毁对象的办法((AbstractApplicationContext)context).registerShutdownHook()*
