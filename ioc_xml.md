@@ -29,4 +29,19 @@
     </bean>
 * name:方法参数名
 #### 通过p名称空间和spEL表达式
-##### p名称空间
+##### p名称空间（基于setter方法）
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl" p:customerDao-ref="customerDao"
+          p:name="eric">
+    </bean>
+* p:属性：注入普通数据（如String类型）
+* p:属性-ref: 注入javabean对象
+##### spEL表达式（基于setter方法和构造方法）
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerDao" value="#{customerDao}"/>
+        <property name="name" value="#{'eric'}"/>
+        <property name="id" value="#{10000}"/>
+    </bean>
+表达式以 #{} 包裹，几种常见表达式：  
+* value="#{'eric'}" 注入的是字符串
+* value="#{10000}" 注入的是数字
+* value="#{customerDao}" 注入的是javabean对象
