@@ -28,3 +28,5 @@
       <property name="customerDao" ref="customerDao"/>
     </bean>
 * name:方法参数名
+#### 通过p名称空间和spEL表达式
+##### p名称空间
