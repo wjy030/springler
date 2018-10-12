@@ -8,3 +8,5 @@
 > 外部资源的获取
 * 为什么是反转
 > 相对于对象主动查找，变为了被动接受容器的注入
+* IOC容器接口  
+ApplicationContext 所有spring ioc容器实现该接口
