@@ -8,8 +8,10 @@
 ## xml标签：  
 ### bean
 ``<bean id="customerDao" class="com.wjy.dao.impl.CustomerDaoImpl" scope="singleton" init-method="init" destroy-method="destory"></bean>``
-### scope：bean的作用域。 常用作用域：
+* scope：bean的作用域。 常用作用域：
 >  singleton: 以单例模式创建对象  
 >  prototype: 以原型（多例）模式创建对象  
 >  request: web应用中每个request创建一个对象  
 >  session：web应用中每个会话创建一个对象  
+* init-method：初始化方法，对象初始化时调用
+* destroy-method: 销毁方法，对象销毁时调用。*只有作用域为singleton时有作用。*
