@@ -25,4 +25,12 @@ public class CustomerDaoImpl implements CustomerDao {
     public void save() {
         System.out.println("保存保存保存！");
     }
+
+    public void init() {
+        System.out.println("初始化");
+    }
+
+    public void destory() {
+        System.out.println("销毁");
+    }
 }
