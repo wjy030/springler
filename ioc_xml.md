@@ -45,3 +45,34 @@
 * value="#{'eric'}" 注入的是字符串
 * value="#{10000}" 注入的是数字
 * value="#{customerDao}" 注入的是javabean对象
+### 数组，List，Map，Properties类型的依赖注入
+#### 数组  
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="cities">
+            <array>
+                <value>上海</value>
+                <value>北京</value>
+                <value>广州</value>
+            </array>
+        </property>
+    </bean>
+#### List
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerServiceList">
+            <list>
+                <ref bean="c1"/>
+                <ref bean="c2"/>
+                <ref bean="c3"/>
+            </list>
+        </property>
+    </bean>
+##### Map
+        <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerServiceList">
+            <list>
+                <ref bean="c1"/>
+                <ref bean="c2"/>
+                <ref bean="c3"/>
+            </list>
+        </property>
+    </bean></bean>
