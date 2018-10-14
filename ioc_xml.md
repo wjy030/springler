@@ -19,7 +19,7 @@
 #### 通过构造方法和setter方法
 ##### 构造方法 constructor-arg
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-      <constructor-arg index="0" ref="customerDao" />
+        <constructor-arg index="0" ref="customerDao" />
     </bean>
 * index:方法参数索引，从0开始  
 * ref:依赖对象（bean）的id
@@ -27,7 +27,7 @@
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
       <property name="customerDao" ref="customerDao"/>
     </bean>
-* name:方法参数名
+ * name:方法参数名
 #### 通过p名称空间和spEL表达式
 ##### p名称空间（基于setter方法）
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl" p:customerDao-ref="customerDao"
@@ -45,3 +45,44 @@
 * value="#{'eric'}" 注入的是字符串
 * value="#{10000}" 注入的是数字
 * value="#{customerDao}" 注入的是javabean对象
+### 数组，List，Map，Properties类型的依赖注入
+#### 数组  
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="cities">
+            <array>
+                <value>上海</value>
+                <value>北京</value>
+                <value>广州</value>
+            </array>
+        </property>
+    </bean>
+#### List
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerServiceList">
+            <list>
+                <ref bean="c1"/>
+                <ref bean="c2"/>
+                <ref bean="c3"/>
+            </list>
+        </property>
+    </bean>
+##### Map
+     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerServiceList">
+            <map>
+                <entry key="cc1" value-ref="c1"/>
+                <entry key="cc2" value-ref="c2"/>
+                <entry key="cc3" value-ref="c3"/>
+            </map>
+        </property>
+    </bean>
+##### Properties
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="custProp">
+            <props>
+                <prop key="001">abc</prop>
+                <prop key="002">basd</prop>
+                <prop key="003">asdfsd</prop>
+            </props>
+        </property>
+    </bean>
