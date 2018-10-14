@@ -18,8 +18,7 @@
 ### 依赖注入
 #### 通过构造方法和setter方法
 ##### 构造方法 constructor-arg
-    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-      <constructor-arg index="0" ref="customerDao" />
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">      <constructor-arg index="0" ref="customerDao" />
     </bean>
 * index:方法参数索引，从0开始  
 * ref:依赖对象（bean）的id
@@ -27,7 +26,7 @@
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
       <property name="customerDao" ref="customerDao"/>
     </bean>
-* name:方法参数名
+ * name:方法参数名
 #### 通过p名称空间和spEL表达式
 ##### p名称空间（基于setter方法）
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl" p:customerDao-ref="customerDao"
@@ -67,12 +66,22 @@
         </property>
     </bean>
 ##### Map
-        <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
         <property name="customerServiceList">
-            <list>
-                <ref bean="c1"/>
-                <ref bean="c2"/>
-                <ref bean="c3"/>
-            </list>
+            <map>
+                <entry key="cc1" value-ref="c1"/>
+                <entry key="cc2" value-ref="c2"/>
+                <entry key="cc3" value-ref="c3"/>
+            </map>
         </property>
-    </bean></bean>
+    </bean>
+##### Properties
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="custProp">
+            <props>
+                <prop key="001">abc</prop>
+                <prop key="002">basd</prop>
+                <prop key="003">asdfsd</prop>
+            </props>
+        </property>
+    </bean>
