@@ -12,6 +12,7 @@ package com.wjy.service.impl;
 
 import com.wjy.dao.CustomerDao;
 import com.wjy.service.CustomerService;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.Properties;
  * @create 2018/10/10
  * @since 1.0.0
  */
+@Component
 public class CustomerServiceImpl implements CustomerService {
     private CustomerDao customerDao;
 

@@ -5,9 +5,28 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="customerDao" class="com.wjy.dao.impl.CustomerDaoImpl" scope="singleton" init-method="init"
           destroy-method="destory"></bean>
-    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+    <bean id="c1" class="com.wjy.service.impl.CustomerServiceImpl">
         <property name="customerDao" value="#{customerDao}"/>
         <property name="name" value="#{'eric'}"/>
-        <property name="id" value="#{10000}"/>
+        <property name="id" value="#{10001}"/>
+    </bean>
+    <bean id="c2" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerDao" value="#{customerDao}"/>
+        <property name="name" value="#{'Mary'}"/>
+        <property name="id" value="#{10002}"/>
+    </bean>
+    <bean id="c3" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="customerDao" value="#{customerDao}"/>
+        <property name="name" value="#{'Tmac'}"/>
+        <property name="id" value="#{10003}"/>
+    </bean>
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <property name="custProp">
+            <props>
+                <prop key="001">abc</prop>
+                <prop key="002">basd</prop>
+                <prop key="003">asdfsd</prop>
+            </props>
+        </property>
     </bean>
 </beans>
