@@ -18,7 +18,8 @@
 ### 依赖注入
 #### 通过构造方法和setter方法
 ##### 构造方法 constructor-arg
-    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">      <constructor-arg index="0" ref="customerDao" />
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+        <constructor-arg index="0" ref="customerDao" />
     </bean>
 * index:方法参数索引，从0开始  
 * ref:依赖对象（bean）的id
