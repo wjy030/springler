@@ -43,3 +43,15 @@ applicationContext.xml中配制：
 * 优先按名称（cd1）查找名称相同的javabean
 * 当按名称未找到唯一匹配对象时，按类型（CustomerDao）查找类型相同的javabean
 * 如果不设置name="cd1"，默认以变量名（customerDaoImpl）查找名称与之相同的javabean
+## spring新注解
+* Configurable: 声明该类为配置类，用以替代applicationContext.xml实现零配置
+* ComponentScan(basePackages = "com.wjy"): 声明查找包路径,相当于xml中的``<context:component-scan base-package="com.wjy"/>``
+* @PropertySource("classpath:jdbc.properties")：加载properties文件，相当于xml中的``<context:property-placeholder location="jdbc.properties"/>``
+* @Import({JDBCProperties.class})：通过导入的方式实现把实例加入springIOC容器中
+* Import的三种使用方式：@Import注解只能注解在类上，以及唯一的参数value上可以配置3种类型的值：普通java对象，ImportSelector，ImportBeanDefinitionRegistrar
+### Bean注解
+    @Bean
+    public CustomerDao getDao() {
+        return new CustomerDaoImpl();
+    }  
+* 注解在方法上 spring容器会执行该方法并将返回的javabean放入容器，bean的name默认为customerDao, 也可以指定``@Bean(name="cd1")``
