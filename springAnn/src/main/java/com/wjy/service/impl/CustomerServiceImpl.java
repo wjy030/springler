@@ -12,8 +12,10 @@ package com.wjy.service.impl;
 
 import com.wjy.dao.CustomerDao;
 import com.wjy.service.CustomerService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -29,15 +31,18 @@ import java.util.Properties;
  */
 @Component
 public class CustomerServiceImpl implements CustomerService {
-    private CustomerDao customerDao;
+    @Resource(name="cd1")
+    private CustomerDao customerDaoImpl;
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDriverType(String driverType) {
+        this.driverType = driverType;
     }
-
+    @Value("上海,深圳")
     private String[] cities;
     private Properties custProp;
-    private String name;
+    @Value("#{cd1.driverClass}")
+    private String driverType;
+    @Value("1111")
     private Long id;
     private List<CustomerService> customerServiceList;
     private Map customerMap;
@@ -45,20 +50,20 @@ public class CustomerServiceImpl implements CustomerService {
 
     /**
      * 构造方法注入
-     * @param customerDao
+     * @param customerDaoImpl
      */
-    public CustomerServiceImpl(CustomerDao customerDao){
+    public CustomerServiceImpl(CustomerDao customerDaoImpl){
         super();
-        this.customerDao = customerDao;
+        this.customerDaoImpl = customerDaoImpl;
     }
 
     @Override
     public String toString() {
         return "CustomerServiceImpl{" +
-                "customerDao=" + customerDao +
+                "c1=" + customerDaoImpl +
                 ", cities=" + Arrays.toString(cities) +
                 ", custProp=" + custProp +
-                ", name='" + name + '\'' +
+                ", driverType='" + driverType + '\'' +
                 ", id=" + id +
                 ", customerServiceList=" + customerServiceList +
                 ", customerMap=" + customerMap +
@@ -67,10 +72,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     /**
      * setter方法注入
-     * @param customerDao
+     * @param customerDaoImpl
      */
-    public void setCustomerDao(CustomerDao customerDao) {
-        this.customerDao = customerDao;
+    public void setCustomerDaoImpl(CustomerDao customerDaoImpl) {
+        this.customerDaoImpl = customerDaoImpl;
     }
     public void save() {
 //        customerDao.save();

@@ -11,6 +11,8 @@
 package com.wjy.dao.impl;
 
 import com.wjy.dao.CustomerDao;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,8 +23,25 @@ import org.springframework.stereotype.Component;
  * @create 2018/10/10
  * @since 1.0.0
  */
-@Component
+
+
 public class CustomerDaoImpl implements CustomerDao {
+    @Override
+    public String toString() {
+        return "CustomerDaoImpl{" +
+                "dName='" + dName + '\'' +
+                ", driverClass='" + driverClass + '\'' +
+                '}';
+    }
+
+    private String dName;
+
+    public String getDriverClass() {
+        return driverClass;
+    }
+
+    @Value("${driverClass}")
+    private  String driverClass;
 
     public void save() {
         System.out.println("保存保存保存！");
@@ -34,5 +53,9 @@ public class CustomerDaoImpl implements CustomerDao {
 
     public void destory() {
         System.out.println("销毁");
+    }
+
+    public void setdName(String dName) {
+        this.dName = dName;
     }
 }

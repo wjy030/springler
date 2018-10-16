@@ -25,21 +25,21 @@
 * ref:依赖对象（bean）的id
 ##### setter方法 property
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-      <property name="customerDao" ref="customerDao"/>
+      <property driverType="customerDao" ref="customerDao"/>
     </bean>
- * name:方法参数名
+ * driverType:方法参数名
 #### 通过p名称空间和spEL表达式
 ##### p名称空间（基于setter方法）
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl" p:customerDao-ref="customerDao"
-          p:name="eric">
+          p:driverType="eric">
     </bean>
 * p:属性：注入普通数据（如String类型）
 * p:属性-ref: 注入javabean对象
 ##### spEL表达式（基于setter方法和构造方法）
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-        <property name="customerDao" value="#{customerDao}"/>
-        <property name="name" value="#{'eric'}"/>
-        <property name="id" value="#{10000}"/>
+        <property driverType="customerDao" value="#{customerDao}"/>
+        <property driverType="driverType" value="#{'eric'}"/>
+        <property driverType="id" value="#{10000}"/>
     </bean>
 表达式以 #{} 包裹，几种常见表达式：  
 * value="#{'eric'}" 注入的是字符串
@@ -48,7 +48,7 @@
 ### 数组，List，Map，Properties类型的依赖注入
 #### 数组  
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-        <property name="cities">
+        <property driverType="cities">
             <array>
                 <value>上海</value>
                 <value>北京</value>
@@ -58,7 +58,7 @@
     </bean>
 #### List
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-        <property name="customerServiceList">
+        <property driverType="customerServiceList">
             <list>
                 <ref bean="c1"/>
                 <ref bean="c2"/>
@@ -68,7 +68,7 @@
     </bean>
 ##### Map
      <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-        <property name="customerServiceList">
+        <property driverType="customerServiceList">
             <map>
                 <entry key="cc1" value-ref="c1"/>
                 <entry key="cc2" value-ref="c2"/>
@@ -78,7 +78,7 @@
     </bean>
 ##### Properties
     <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
-        <property name="custProp">
+        <property driverType="custProp">
             <props>
                 <prop key="001">abc</prop>
                 <prop key="002">basd</prop>

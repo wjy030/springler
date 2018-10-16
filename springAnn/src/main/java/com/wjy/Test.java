@@ -28,8 +28,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
     public static void main(String[] args) {
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.wjy");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ApplicationContext context = new AnnotationConfigApplicationContext("com.wjy");
         System.out.println(context.getBean("customerServiceImpl"));
         ((CustomerService)context.getBean("customerServiceImpl")).save();
     }
