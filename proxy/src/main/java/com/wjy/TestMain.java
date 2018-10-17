@@ -10,6 +10,7 @@
  */
 package com.wjy;
 
+import com.wjy.proxy.CglibProxyUtil;
 import com.wjy.proxy.JDKProxyUtil;
 import com.wjy.service.CustomerService;
 import com.wjy.service.impl.CustomerServiceImpl;
@@ -25,7 +26,7 @@ import com.wjy.service.impl.CustomerServiceImpl;
 public class TestMain {
 
     public static void main(String[] args) {
-        CustomerService customerService = (CustomerService) JDKProxyUtil.getProxy(new CustomerServiceImpl());
+        CustomerService customerService = (CustomerService) CglibProxyUtil.getProxy(new CustomerServiceImpl());
         customerService.save();
         customerService.update();
     }
