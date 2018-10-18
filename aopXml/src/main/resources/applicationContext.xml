@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="c1" class="com.wjy.service.impl.CustomerServiceImpl"></bean>
+    <bean id="a1" class="com.wjy.config.LogAspect"></bean>
+    <aop:config>
+        <aop:aspect id="asp" ref="a1">
+            <aop:pointcut id="logpt" expression="execution(public void com.wjy.service.impl.CustomerServiceImpl.*())"/>
+            <aop:before method="log" pointcut-ref="logpt"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
