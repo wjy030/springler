@@ -13,4 +13,6 @@
 > ref：切面关联的javabean
 * pointcut: 切入点。
 > expression: 表达式，表示所有要被通知的方法
-* before: 前置通知，不用
+* before: 前置通知，其他通知：after/around/after-returning等等。
+> method: 实现通知（增强）的方法。  
+> pointcut-ref: 要把通知织入的切入点
