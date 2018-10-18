@@ -12,4 +12,5 @@
 * aspect: 切面，由切入点，通知组成。
 > ref：切面关联的javabean
 * pointcut: 切入点。
-> expression: 表达式，表示所有
+> expression: 表达式，表示所有要被通知的方法
+* before: 前置通知，不用
