@@ -26,8 +26,13 @@
 6. save--方法名，可使用通配符：*
 7. java.lang.Integer--参数，可使用通配符 .. 表示任意个任意类型的参数
 ## 几种通知类型
-* before: 前置通知
-* after: 后置通知，报错或正常返回都会通知
-* after-returning: 返回通知，报错时不会通知，正常返回时才会通知
-* after-throwing: 报错通知
-* around: 环绕通知
+* before: 前置通知  
+  ``public void beforeArg(JoinPoint joinPoint)``  
+* after: 后置通知，报错或正常返回都会通知  
+  ``public void afterArg(JoinPoint joinPoint)``  
+* after-returning: 返回通知，报错时不会通知，正常返回时才会通知  
+  ``public void afterArg(JoinPoint joinPoint,Object rvt)``rvt为方法返回值  
+* after-throwing: 报错通知  
+  ``public void logThrow(Throwable ex)``
+* around: 环绕通知  
+  ``public void logAround(ProceedingJoinPoint joinPoint)``
