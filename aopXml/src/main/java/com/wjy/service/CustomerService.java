@@ -22,4 +22,5 @@ public interface CustomerService {
 
     void save();
     void update();
+    String methodArg(Integer arg);
 }

@@ -9,6 +9,17 @@
         <aop:aspect id="asp" ref="a1">
             <aop:pointcut id="logpt" expression="execution(public void com.wjy.service.impl.CustomerServiceImpl.*())"/>
             <aop:before method="log" pointcut-ref="logpt"/>
+            <aop:after method="logAfter" pointcut-ref="logpt"/>
+            <aop:after-returning method="logReturn" pointcut-ref="logpt"/>
+            <aop:after-throwing method="logReturn" pointcut-ref="logpt"/>
+            <aop:around method="logAround"
+                        pointcut="execution(public void com.wjy.service.impl.CustomerServiceImpl.update())"/>
+            <aop:pointcut id="arg"
+                          expression="execution(public String com.wjy.service.impl.CustomerServiceImpl.*(..))"/>
+            <aop:before method="beforeArg" pointcut-ref="arg"/>
+            <aop:after-returning method="afterArg" returning="rvt" pointcut-ref="arg" />
+            <aop:after-throwing method="logThrow" throwing="ex"
+                                pointcut="execution(public String com.wjy.service.impl.CustomerServiceImpl.methodArg(..))"/>
         </aop:aspect>
     </aop:config>
 </beans>

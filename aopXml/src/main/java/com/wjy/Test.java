@@ -27,7 +27,8 @@ public class Test {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         CustomerService customerService = (CustomerService) context.getBean("c1");
-        customerService.update();
-        customerService.save();
+//        customerService.update();
+//        customerService.save();
+        customerService.methodArg(1);
     }
 }

@@ -10,6 +10,9 @@
  */
 package com.wjy.config;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+
 /**
  * 〈一句话功能简述〉<br> 
  * 〈测试日志切面〉
@@ -21,6 +24,36 @@ package com.wjy.config;
 public class LogAspect {
 
     public void log() {
-        System.out.println("记录日志");
+        System.out.println("before记录日志");
+    }
+
+    public void logReturn() {
+        System.out.println("afterReturn记录日志");
+    }
+
+    public void logAfter() {
+        System.out.println("after记录日志");
+    }
+
+    public void beforeArg(JoinPoint joinPoint) {
+        System.out.println("参数"+joinPoint.getArgs());
+    }
+
+    public void afterArg(JoinPoint joinPoint,Object rvt) {
+        System.out.println("参数"+rvt);
+    }
+
+    public void logThrow(Throwable ex) {
+        System.out.println("throw记录日志" + ex.getMessage());
+    }
+
+    public void logAround(ProceedingJoinPoint joinPoint) {
+        System.out.println("around前置记录日志");
+        try {
+            joinPoint.proceed();
+        } catch (Throwable throwable) {
+            System.out.println("error");
+        }
+        System.out.println("around后置记录日志");
     }
 }

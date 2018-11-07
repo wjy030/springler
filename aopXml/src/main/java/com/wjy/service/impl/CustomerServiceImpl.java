@@ -29,4 +29,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void update() {
         System.out.println("执行更新");
     }
+
+    public String methodArg(Integer arg) {
+        System.out.println(1/0);
+        return "有返回值";
+    }
 }
