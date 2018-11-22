@@ -8,5 +8,7 @@
     template.setDataSource(dataSource);
     template.update("update pub_goods set goodsname = '超级' where goodsid = 139809");
 * DriverManagerDataSource spring数据源，设置数据库连接参数
-* JdbcTemplate 可以执行sql语句
-    
+* JdbcTemplate 可以执行sql语句  
+    ``List<GoodsDao> query = template.query("select * from pub_goods where goodsid = ?", new
+                BeanPropertyRowMapper<GoodsDao>(GoodsDao.class), 139809);``  
+  查出数据并映射成javabean
