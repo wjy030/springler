@@ -44,3 +44,9 @@
 5. PROPAGATION_NOT_SUPPORTED：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。
 6. PROPAGATION_NEVER：以非事务方式执行，如果当前存在事务，则抛出异常。
 7. PROPAGATION_NESTED：如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。
+## 注解配置方式
+* 在xml中开启注解<tx:annotation-driven transaction-manager="transactionManager"/>
+* 通过注解@EnableTransactionManagement 开启  
+``@EnableTransactionManagement``  
+``public class DBConfig {``
+* @Transactional 加在方法或类上，指定方法或指定类的所有方法使用事务。事务中可配置属性和xml一样
