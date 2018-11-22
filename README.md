@@ -8,3 +8,5 @@
 * [动态代理](proxy.md)
 * [aop xml配置](aop_xml.md)
 * [aop 注解配置](aop_annotation.md)
+* [spring jdbctemplate框架](jdbctemplate.md)
+* [spring 事务管理](transaction.md)
