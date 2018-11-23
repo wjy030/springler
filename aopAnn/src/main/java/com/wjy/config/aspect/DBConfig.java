@@ -57,9 +57,9 @@ public class DBConfig {
         return jdbcTemplate;
     }
     @Bean
-    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
+    public DataSourceTransactionManager transactionManager(DataSource dtaSource) {
         DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
-        transactionManager.setDataSource(dataSource);
+        transactionManager.setDataSource(dtaSource);
         return transactionManager;
     }
 

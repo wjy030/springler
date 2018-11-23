@@ -20,7 +20,7 @@
         <property name="name" value="#{'Tmac'}"/>
         <property name="id" value="#{10003}"/>
     </bean>
-    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl">
+    <bean id="customerService" class="com.wjy.service.impl.CustomerServiceImpl" scope="prototype">
         <property name="custProp">
             <props>
                 <prop key="001">abc</prop>

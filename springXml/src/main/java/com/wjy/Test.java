@@ -29,6 +29,7 @@ public class Test {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         System.out.println(context.getBean("customerService"));
+        System.out.println(context.getBean("customerService"));
         ((CustomerService)context.getBean("customerService")).save();
     }
 }
