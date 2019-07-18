@@ -12,7 +12,7 @@
      }
     }
 ### 创建动态代理对象 Proxy.newProxyInstance
-* 参数1：classloader,类加载器target.getClass().getInterfaces() 使用被代理对象同样的即可
+* 参数1：classloader,类加载器target.getClass().getClassLoader() 使用被代理对象同样的即可
 * 参数2：interfaces,被代理对象实现的接口target.getClass().getInterfaces()
 * 参数3：InvocationHandler，用于实现代理的处理器，调用代理类的方法实际都会调用处理器的invoke方法
 ## Cglib动态代理
