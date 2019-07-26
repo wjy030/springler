@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public String methodArg(Integer arg) {
-        System.out.println(1/0);
+//        System.out.println(1/0);
         return "有返回值";
     }
 }

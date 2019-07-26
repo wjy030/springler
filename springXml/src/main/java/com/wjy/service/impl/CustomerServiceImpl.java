@@ -35,6 +35,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     private String[] cities;
     private Properties custProp;
+
+    public String getName() {
+        return name;
+    }
+
     private String name;
     private Long id;
     private List<CustomerService> customerServiceList;

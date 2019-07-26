@@ -3,16 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="customerDao" class="com.wjy.dao.impl.CustomerDaoImpl" scope="singleton" init-method="init"
+    <bean id="customerDao" lazy-init="true" class="com.wjy.dao.impl.CustomerDaoImpl" scope="singleton" init-method="init"
           destroy-method="destory"></bean>
     <bean id="c1" class="com.wjy.service.impl.CustomerServiceImpl">
         <property name="customerDao" value="#{customerDao}"/>
         <property name="name" value="#{'eric'}"/>
-        <property name="id" value="#{10001}"/>
+        <property name="id" value="${123}"/>
     </bean>
     <bean id="c2" class="com.wjy.service.impl.CustomerServiceImpl">
         <property name="customerDao" value="#{customerDao}"/>
-        <property name="name" value="#{'Mary'}"/>
+        <property name="name" value="#{c1.name}"/>
         <property name="id" value="#{10002}"/>
     </bean>
     <bean id="c3" class="com.wjy.service.impl.CustomerServiceImpl">
@@ -28,5 +28,7 @@
                 <prop key="003">asdfsd</prop>
             </props>
         </property>
+    </bean>
+    <bean id="goods" class="com.wjy.service.impl.GoodsImpl" p:name="abc">
     </bean>
 </beans>

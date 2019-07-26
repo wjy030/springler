@@ -10,8 +10,10 @@
  */
 package com.wjy;
 
+import com.wjy.config.SpringConfig;
 import com.wjy.dao.CustomerDao;
 import com.wjy.service.CustomerService;
+import com.wjy.service.impl.CustomerServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -28,9 +30,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        ApplicationContext context = new AnnotationConfigApplicationContext("com.wjy");
+     //   ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+       ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         System.out.println(context.getBean("customerServiceImpl"));
-        ((CustomerService)context.getBean("customerServiceImpl")).save();
+        ((CustomerServiceImpl)context.getBean("customerServiceImpl")).save();
     }
 }

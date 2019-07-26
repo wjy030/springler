@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="com.wjy"/>
-    <bean name="cd1" class="com.wjy.dao.impl.CustomerDaoImpl" p:dName="大" init-method="init"
+    <bean  name="cd1" class="com.wjy.dao.impl.CustomerDaoImpl" p:dName="大" init-method="init"
           destroy-method="destory"></bean>
     <!--<bean name="cd2" class="com.wjy.dao.impl.CustomerDaoImpl" p:dName="小" init-method="init"-->
           <!--destroy-method="destory"></bean>-->

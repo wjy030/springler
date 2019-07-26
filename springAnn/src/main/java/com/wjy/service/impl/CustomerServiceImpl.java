@@ -12,8 +12,13 @@ package com.wjy.service.impl;
 
 import com.wjy.dao.CustomerDao;
 import com.wjy.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
@@ -31,7 +36,7 @@ import java.util.Properties;
  */
 @Component
 public class CustomerServiceImpl implements CustomerService {
-    @Resource(name="cd1")
+    @Autowired
     private CustomerDao customerDaoImpl;
 
     public void setDriverType(String driverType) {
@@ -40,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Value("上海,深圳")
     private String[] cities;
     private Properties custProp;
-    @Value("#{cd1.driverClass}")
+//    @Value("#{cd1.driverClass}")
     private String driverType;
     @Value("1111")
     private Long id;
@@ -82,6 +87,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public void setId(Long id) {
+        System.out.println("aaaaaaaaaa");
         this.id = id;
     }
 

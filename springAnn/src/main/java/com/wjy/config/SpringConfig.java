@@ -30,7 +30,7 @@ import org.springframework.context.annotation.Import;
 @ComponentScan(basePackages = "com.wjy")
 public class SpringConfig {
 
-    @Bean(name="cd1")
+    @Bean
     public CustomerDao getDao() {
         return new CustomerDaoImpl();
     }

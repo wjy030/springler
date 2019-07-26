@@ -34,9 +34,12 @@ public class CustomerDao {
 
     public void add() {
 
-        jdbcTemplate.update("update pub_goods set goodsname = '天醒' where goodsid = 139809");
+//        jdbcTemplate.update("update pub_goods set goodsname = '天醒' where goodsid = 139809");
         List<GoodsDao> query = jdbcTemplate.query("select * from pub_goods where goodsid = ?", new
                 BeanPropertyRowMapper<GoodsDao>(GoodsDao.class), 139809);
+        jdbcTemplate.query("select * from pub_goods where goodsid = ?", new
+                BeanPropertyRowMapper<GoodsDao>(GoodsDao.class), 139810);
+        System.out.println("sql结束");
         System.out.println(query.get(0).getGoodsid());
     }
 }

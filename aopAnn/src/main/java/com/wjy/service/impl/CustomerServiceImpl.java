@@ -13,6 +13,8 @@ package com.wjy.service.impl;
 import com.wjy.dao.CustomerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -29,7 +31,7 @@ public class CustomerServiceImpl {
     @Autowired
     private CustomerDao customerDao;
 
-    @Transactional
+    @Transactional(isolation = Isolation.SERIALIZABLE,propagation = Propagation.REQUIRES_NEW)
     public void add() {
         System.out.println("执行新增");
         customerDao.add();

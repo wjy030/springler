@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
     @Pointcut("execution(public void com.wjy.service.impl.CustomerServiceImpl.add())")
     public void pointCut(){}
-    @Before("pointCut()")
+    @Before("execution(public void com.wjy.service.impl.CustomerServiceImpl.add())")
     public void log() {
         System.out.println("打印before日志");
     }

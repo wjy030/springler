@@ -7,7 +7,7 @@
     <bean id="a1" class="com.wjy.config.LogAspect"></bean>
     <aop:config>
         <aop:aspect id="asp" ref="a1">
-            <aop:pointcut id="logpt" expression="execution(public void com.wjy.service.impl.CustomerServiceImpl.*())"/>
+            <aop:pointcut id="logpt" expression="execution(public void com.wjy.service.impl.Customer*.*(..))"/>
             <aop:before method="log" pointcut-ref="logpt"/>
             <aop:after method="logAfter" pointcut-ref="logpt"/>
             <aop:after-returning method="logReturn" pointcut-ref="logpt"/>

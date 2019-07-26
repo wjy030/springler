@@ -13,6 +13,7 @@ package com.wjy;
 import com.wjy.dao.CustomerDao;
 import com.wjy.service.CustomerService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,8 +29,9 @@ public class Test {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        System.out.println(context.getBean("customerService"));
-        System.out.println(context.getBean("customerService"));
-        ((CustomerService)context.getBean("customerService")).save();
+//        System.out.println(context.getBean("customerService"));
+////        System.out.println(context.getBean("customerService"));
+        System.out.println(context.getBean("c2"));
+//        ((CustomerService)context.getBean("customerService")).save();
     }
 }
