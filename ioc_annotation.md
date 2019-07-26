@@ -27,6 +27,15 @@ applicationContext.xml中配制：
     private String driverType;
 * #{}中能执行spEL
 * 需要字段有get方法
+##### Value不支持jsr303数据校验
+```
+@Component
+@Validate
+public class Bean {
+@NotEmpty
+private String name;
+```
+@NotEmpty 注解不会生效
 #### Autowired注解
     @Autowired
     private CustomerDao cd1;
